@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">ManServic</string>
+
+    <string-array name="lugar">
+
+        <item>Seleccione Lugar...*</item>
+        <item>Local</item>
+        <item>En sus oficinas</item>
+        <item>Remoto</item>
+
+    </string-array>
+
+    <string-array name="hora">
+
+        <item>Local</item>
+        <item>En sus oficinas</item>
+        <item>Remoto</item>
+
+    </string-array>
+
+
+
+
+
+
+</resources>
