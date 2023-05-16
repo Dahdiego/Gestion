@@ -1,29 +1,24 @@
 package com.example.manservic
 
-import android.graphics.Rect
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.MotionEvent
-import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.example.manservic.databinding.ActivityPartesBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
 
 class IntroducirPartes : AppCompatActivity() {
 
+    private lateinit var binding: ActivityPartesBinding
     private lateinit var funciones: FuncionesSQL
-    private lateinit var edHoraI: EditText
-    private lateinit var edHoraF: EditText
-    private lateinit var tvHorasT: TextView
-    private lateinit var tvTecnico: TextView
-    private lateinit var edFecha: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_partes)
+        binding = ActivityPartesBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         // Inicializamos la base de datos
         funciones = FuncionesSQL()
@@ -31,27 +26,26 @@ class IntroducirPartes : AppCompatActivity() {
         funciones.init(applicationContext)
         //Abrimos la base de datos
         funciones.open()
-        val spinnerLugar = findViewById<Spinner>(R.id.spLugar)
+
 
 
 
         val email = "prueba@manservic.es"
-        val tvTecnico = findViewById<TextView>(R.id.tvtecnico)
 
         val parts = email.split("@")
         if (parts.size > 1) {
             val username = parts[0]
-            tvTecnico.text = username
+            binding.tvtecnico.text = username
 
         }
-        val edFecha = findViewById<TextView>(R.id.edFecha)
+        val edFecha = findViewById<TextView>(R.id.etFecha)
         val dateFormat = SimpleDateFormat("dd/MM/yyyy")
         val currentDate = dateFormat.format(Date())
         edFecha.text = currentDate
 
-        val etHoraI = findViewById<EditText>(R.id.etHoraI)
 
-            etHoraI.addTextChangedListener(object : TextWatcher {
+
+            binding.etHoraI.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
@@ -60,9 +54,9 @@ class IntroducirPartes : AppCompatActivity() {
                     val input = s.toString()
 
                     if (!isValidTimeFormat(input)) {
-                        etHoraI.error = "Formato incorrecto (ejemplo: 00:00)"
+                        binding.etHoraI.error = "Formato incorrecto (ejemplo: 00:00)"
                     } else {
-                        etHoraI.error = null
+                        binding.etHoraI.error = null
                     }
                 }
 
@@ -72,9 +66,9 @@ class IntroducirPartes : AppCompatActivity() {
                 }
             })
 
-        val etHoraF = findViewById<EditText>(R.id.etHoraF)
 
-        etHoraF.addTextChangedListener(object : TextWatcher {
+
+        binding.etHoraF.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
@@ -83,9 +77,9 @@ class IntroducirPartes : AppCompatActivity() {
                 val input = s.toString()
 
                 if (!isValidTimeFormat(input)) {
-                    etHoraF.error = "Formato incorrecto (ejemplo: 00:00)"
+                    binding.etHoraF.error = "Formato incorrecto (ejemplo: 00:00)"
                 } else {
-                    etHoraF.error = null
+                    binding.etHoraF.error = null
                 }
             }
 
@@ -94,18 +88,49 @@ class IntroducirPartes : AppCompatActivity() {
                 return input.matches(regex)
             }
         })
-        val scroll: ScrollView = findViewById(R.id.scrollPantalla)
-        val firma: LinearLayout = findViewById(R.id.huecofirma)
-        val canvasView: CanvasView = findViewById(R.id.canvasView)
-        firma.setOnTouchListener { _, event ->
+
+        binding.huecofirma.setOnTouchListener { _, event ->
             // Bloquear el ScrollView
-            scroll.requestDisallowInterceptTouchEvent(true)
+            binding.scrollPantalla.requestDisallowInterceptTouchEvent(true)
 
             // Manejar la firma
-            canvasView.onTouchEvent(event)
+            binding.canvasView.onTouchEvent(event)
         }
-
     }//Find del oncreate
 
+    private fun insertarRegistro() {
+
+
+
+            val resultado = funciones.insertarDatos(
+                binding.tvnparte.text.toString(),
+                binding.tvtecnico.text.toString(),
+                binding.spncontrato.selectedItem.toString().toInt(),
+                binding.etCliente.text.toString(),
+                binding.spTipoContrato.selectedItem.toString(),
+                binding.etFecha.text.toString(),
+                binding.etHoraI.text.toString(),
+                binding.etHoraF.text.toString(),
+                binding.tvHorasR.text.toString(),
+                binding.etHorad.text.toString().toInt(),
+                binding.etHorasf.text.toString().toInt(),
+                binding.edHorasD.text.toString(),
+                binding.spLugar.selectedItem.toString(),
+                binding.etTrabajos.text.toString(),
+                binding.etDetalles.text.toString(),
+                //binding.huecofirma.boolean.toString()
+                )
+                Toast.makeText(
+                    applicationContext,
+                    "Nuevo registro insertado con ID: $resultado",
+                    Toast.LENGTH_SHORT
+                ).show()
+                // Si nos devuelve -1 es que ha habido algún error al insertar
+                Toast.makeText(
+                    applicationContext,
+                    "Error al insertar",
+                    Toast.LENGTH_SHORT
+                ).show()
+    } // Fin función insertarRegistro()
 
 }

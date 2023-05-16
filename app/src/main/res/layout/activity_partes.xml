@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/background"
     tools:context=".IntroducirPartes">
 
     <ScrollView
@@ -20,12 +20,19 @@
         app:layout_constraintVertical_bias="0.036">
 
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="20dp">
+
+            <Button
+                android:id="@+id/btAtras"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/atras"/>
 
             <ImageView
                 android:id="@+id/imageView"
@@ -74,8 +81,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <Spinner
-                        android:id="@+id/spinner_nparte"
+                    <TextView
+                        android:id="@+id/tvnparte"
                         android:layout_width="match_parent"
                         android:layout_height="43dp"
                         android:background="@drawable/border" />
@@ -140,15 +147,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <EditText
-                        android:id="@+id/spinner_ncontrato"
+                    <Spinner
+                        android:id="@+id/spncontrato"
                         android:layout_width="match_parent"
                         android:layout_height="43dp"
                         android:background="@drawable/border"
                         android:textColor="#071668"/>
 
                     <EditText
-                        android:id="@+id/editTextCliente"
+                        android:id="@+id/etCliente"
                         android:layout_width="match_parent"
                         android:layout_height="43dp"
                         android:background="@drawable/border"
@@ -156,8 +163,8 @@
                         android:inputType="textPersonName"
                         android:textColor="#071668"/>
 
-                    <EditText
-                        android:id="@+id/editTextTipoContrato"
+                    <Spinner
+                        android:id="@+id/spTipoContrato"
                         android:layout_width="match_parent"
                         android:layout_height="43dp"
                         android:background="@drawable/border"
@@ -237,8 +244,8 @@
                             android:textAlignment="center"
                             android:textColor="#071668"/>
 
-                        <EditText
-                            android:id="@+id/tvHoraT"
+                        <TextView
+                            android:id="@+id/tvHorasR"
                             android:layout_width="match_parent"
                             android:layout_height="43dp"
                             android:background="@drawable/border"
@@ -284,7 +291,7 @@
                         android:orientation="vertical">
 
                         <EditText
-                            android:id="@+id/edFecha"
+                            android:id="@+id/etFecha"
                             android:layout_width="wrap_content"
                             android:layout_height="43dp"
                             android:background="@drawable/border"
@@ -328,7 +335,7 @@
                             android:textColor="#071668"/>
 
                         <EditText
-                            android:id="@+id/editTextHoraDescanso"
+                            android:id="@+id/etHorad"
                             android:layout_width="match_parent"
                             android:layout_height="43dp"
                             android:background="@drawable/border"
@@ -339,7 +346,7 @@
                             android:textColor="#071668"/>
 
                         <TextView
-                            android:id="@+id/textView16"
+                            android:id="@+id/etHorasf"
                             android:layout_width="match_parent"
                             android:layout_height="43dp"
                             android:background="@drawable/border"
@@ -379,7 +386,7 @@
                     android:textColor="#071668"/>
 
                 <EditText
-                    android:id="@+id/edit_textTrabajos"
+                    android:id="@+id/etTrabajos"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:background="@drawable/border"
@@ -396,7 +403,7 @@
                     android:textColor="#071668"/>
 
                 <EditText
-                    android:id="@+id/edit_textObservaciones"
+                    android:id="@+id/etDetalles"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:background="@drawable/border"
@@ -419,6 +426,7 @@
                 android:layout_height="150dp"
                 android:background="@drawable/border"
                 android:orientation="horizontal">
+
                 <com.example.manservic.CanvasView
                     android:id="@+id/canvasView"
                     android:layout_width="match_parent"
@@ -436,7 +444,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="30dp"
+                android:layout_marginBottom="5dp"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
@@ -469,6 +477,23 @@
                 </LinearLayout>
 
             </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="0dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btHecho"
+                android:layout_width="190dp"
+                android:layout_height="43dp"
+                android:layout_marginLeft="100dp"
+                android:background="@drawable/boton_menu"
+                android:gravity="center"
+                android:text="Hecho"/>
+        </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

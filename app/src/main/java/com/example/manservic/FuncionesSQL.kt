@@ -34,6 +34,33 @@ class FuncionesSQL { // Fin clase Operaciones
         return db.insert("tecnicos", null, nuevoRegistro)
     }
 
+    fun insertarDatos(
+        nParte: String, tecnico: String, nContrato: Int, cliente: String,
+        tipo_contrato: String, fecha: String, hora_inicio: String, hora_fin: String,
+        hora_realizadas: String, hora_descanso: Int, hora_facturar: Int, hora_desplazamiento: String,
+        lugar_realizado: String, trabajo_realizado: String, detalles_material: String, /**firma: String**/) {
+
+        val values = ContentValues()
+        values.put("numero_partes", nParte)
+        values.put("tecnico", tecnico)
+        values.put("numero_contrato", nContrato)
+        values.put("cliente", cliente)
+        values.put("tipo_contrato", tipo_contrato)
+        values.put("fecha", fecha)
+        values.put("hora_inicio", hora_inicio)
+        values.put("hora_fin", hora_fin)
+        values.put("hora_realizadas", hora_realizadas)
+        values.put("hora_descanso", hora_descanso)
+        values.put("hora_facturar", hora_facturar)
+        values.put("hora_desplazamiento", hora_desplazamiento)
+        values.put("lugar_realizado", lugar_realizado)
+        values.put("trabajo_realizado", trabajo_realizado)
+        values.put("detalles_material", detalles_material)
+        //values.put("firma", firma)
+
+        db.insert("partes", null, values)
+    }
+
     // Consultar si existe usuario
     fun consultarUsuarioExiste(email: String, password: String): Boolean {
         val sql = "SELECT * FROM tecnicos WHERE email = '$email' AND password = '$password'"

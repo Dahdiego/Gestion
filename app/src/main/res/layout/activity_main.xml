@@ -8,6 +8,7 @@
     tools:context=".MainActivity"
     android:background="@color/white">
 
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="300dp"
@@ -25,12 +26,12 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="100dp"
         android:layout_below="@+id/imageView"
-        android:backgroundTint="#333851"
+        android:backgroundTint="#18204C"
         android:drawableLeft="@drawable/icon_email"
-        android:textColorHint="#6E6E6E"
+        android:textColorHint="#BC121A47"
         android:hint="Usuario"
         android:inputType="textPersonName"
-        android:textColor="#0A1347"
+        android:textColor="#131E5A"
         android:paddingLeft="5dp" />
 
     <EditText
@@ -41,11 +42,11 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="100dp"
         android:layout_below="@+id/etEmail"
-        android:backgroundTint="#333851"
+        android:backgroundTint="#18204C"
         android:drawableLeft="@drawable/icon_lock"
-        android:textColorHint="#6E6E6E"
+        android:textColorHint="#BC121A47"
         android:hint="Contraseña"
-        android:textColor="#0A1347"
+        android:textColor="#131E5A"
         android:inputType="textPassword"
         android:paddingLeft="5dp"/>
 

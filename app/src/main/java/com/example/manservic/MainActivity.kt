@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             // Campos correctos y usuario existe en base de datos dbLogin... Abrimos 2ª activity
             if (validarDatos(binding.etEmail, binding.etPassword)) {
                 if (buscarUsuarioEnDb(binding.etEmail, binding.etPassword)) {
-                    val intent = Intent(this@MainActivity, IntroducirPartes::class.java)
+                    val intent = Intent(this@MainActivity, MenuPrincipal::class.java)
                     intent.putExtra("EMAIL", binding.etEmail.text.toString())
                     intent.putExtra("PASS", binding.etPassword.text.toString())
                     startActivity(intent)
