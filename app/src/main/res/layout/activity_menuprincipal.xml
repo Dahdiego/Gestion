@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <Button
+        android:id="@+id/btAtras"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/atras"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginLeft="100dp"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/manservic_logo" />
+
+
+    <Button
+        android:id="@+id/btPartes"
+        android:layout_centerHorizontal="true"
+        android:layout_width="320dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="100dp"
+        android:background="@drawable/boton_menu"
+        android:text="Nuevo Parte"
+        android:textColor="#FFF"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/btHistorial"
+        android:layout_centerHorizontal="true"
+        android:layout_width="320dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/btPartes"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="100dp"
+        android:background="@drawable/boton_menu"
+        android:text="Historial"
+        android:textColor="#FFF"
+        android:textSize="18sp"/>
+
+</RelativeLayout>
